@@ -38,6 +38,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim' 
 Bundle 'petRUShka/vim-opencl.git'
+Bundle 'kongo2002/fsharp-vim.git'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
@@ -79,9 +80,13 @@ syntax on
 colorscheme zenburn
 "desert
 "font
-"set guifont=DejaVu\ Sans\ Mono\ 10
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-"set guifont=DejaVu\ Sans\ Mono
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+  elseif has("gui_win32")
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
+  endif
+endif
 "let Powerline_symbols = 'compatible'
 let g:Powerline_symbols = 'fancy' 
 set laststatus=2 
