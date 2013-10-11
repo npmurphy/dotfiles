@@ -24,7 +24,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'godlygeek/tabular'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'vimoutliner/vimoutliner'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 Bundle 'Lokaltog/powerline-fonts'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-surround'
@@ -80,14 +80,12 @@ syntax on
 colorscheme zenburn
 "desert
 "font
-if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-  elseif has("gui_win32")
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
-  endif
+"if has("gui_running")
+if has("gui_gtk2")
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+elseif has("gui_win32") || has('gui_win64')
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
 endif
-"let Powerline_symbols = 'compatible'
 let g:Powerline_symbols = 'fancy' 
 set laststatus=2 
 "Now using powerline

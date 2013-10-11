@@ -21,7 +21,16 @@ vmap <buffer> <F7>		<Plug>LatexWrapSelection
 vmap <buffer> <S-F7>	<Plug>LatexEnvWrapSelection
 imap <buffer> (( 		\eqref{
 
-let g:LatexBox_viewer = '/home/nmurphy/bin/evince-sync'
+" this doesnt work, it seems to need to go in .vimrc
+" https://github.com/LaTeX-Box-Team/LaTeX-Box/issues/80
+let g:LatexBox_ignore_warnings += ['LaTeX Font Warning']
+
+if has('win32') || has('win64')
+  let g:LatexBox_viewer = '' " executes the file with default app
+else
+  let g:LatexBox_viewer = '/home/nmurphy/bin/evince-sync'
+endif
+
 let g:LatexBox_latexmk_async=1
 
 function! LatexEvinceSearch()
