@@ -45,6 +45,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim' 
 Bundle 'petRUShka/vim-opencl.git'
 Bundle 'kongo2002/fsharp-vim.git'
+Bundle 'derekwyatt/vim-scala'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
@@ -55,6 +56,7 @@ Bundle 'git://repo.or.cz/vcscommand.git'
 "Bundle 'git://git.wincent.com/command-t.git'
 " Writing tools 
 "Bundle 'vim-scripts/LanguageTool'
+"Bundle 'davidbeckingsale/writegood.vim.git'
 "Bundle 'DamienCassou/textlint'
 
 
@@ -86,11 +88,12 @@ syntax on
 colorscheme zenburn
 "desert
 "font
-"if has("gui_running")
-if has("gui_gtk2")
-  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-elseif has("gui_win32") || has('gui_win64')
-  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+  elseif has("gui_win32") || has('gui_win64')
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
+  endif
 endif
 let g:Powerline_symbols = 'fancy' 
 set laststatus=2 
