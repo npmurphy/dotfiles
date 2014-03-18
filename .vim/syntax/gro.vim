@@ -29,7 +29,7 @@ setlocal iskeyword+=?
 "syn keyword nlogoStatement carefully error-message map report run runresult stop startup wait without-interruption 
 syn keyword groStatement include program fun ecoli yeast
 syn keyword groConditional if end then else 
-"syn keyword groRepeat while loop for 
+syn keyword groRepeat while foreach do in
 
 " Constant
 "syn keyword groConstant e pi 
@@ -61,7 +61,7 @@ hi link groBoolean     Boolean
 hi link groFloat       Float
 hi link groStatement   Statement
 hi link groConditional Conditional
-"hi link groRepeat      Repeat
+hi link groRepeat      Repeat
 hi link groIdentifier  Identifier
 hi link groType	      Type
 hi link groDefine     Define
