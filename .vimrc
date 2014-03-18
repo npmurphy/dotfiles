@@ -16,6 +16,7 @@ if has('win32') || has('win64')
   "set shell=cmd
   "set shellcmdflag=/c
   "set shellxquote=
+  let $MYVIMRC='dotfiles/.vimrc'
 else
   " Usual quickstart instructions
   set rtp+=~/.vim/bundle/vundle/
