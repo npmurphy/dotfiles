@@ -9,7 +9,13 @@ filetype off
 "Vundle 
 if has('win32') || has('win64')
   set rtp+=~/vimfiles/bundle/vundle/
-  call vundle#rc('$HOME/vimfiles/bundle/')
+  let path='~/vimfiles/bundle'
+  call vundle#rc(path)
+  "call vundle#rc('$HOME/vimfiles/bundle/')
+  " this stoped a lot of things working
+  "set shell=cmd
+  "set shellcmdflag=/c
+  "set shellxquote=
 else
   " Usual quickstart instructions
   set rtp+=~/.vim/bundle/vundle/
