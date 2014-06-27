@@ -59,6 +59,9 @@ Bundle "pangloss/vim-javascript"
 " non github repos
 Bundle 'git://repo.or.cz/vcscommand.git'
 Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'clausreinke/typescript-tools'
+Bundle 'leafgarland/typescript-vim'
+
 " Writing tools 
 "Bundle 'vim-scripts/LanguageTool'
 "Bundle 'davidbeckingsale/writegood.vim.git'
