@@ -6,24 +6,27 @@ set encoding=utf-8
 filetype off 
 
 
-"Vundle 
-if has('win32') || has('win64')
-  set rtp+=~/vimfiles/bundle/vundle/
-  let path='~/vimfiles/bundle'
-  call vundle#rc(path)
-  "call vundle#rc('$HOME/vimfiles/bundle/')
-  " this stoped a lot of things working
-  "set shell=cmd
-  "set shellcmdflag=/c
-  "set shellxquote=
-  let $MYVIMRC='dotfiles/.vimrc'
-else
-  " Usual quickstart instructions
-  set rtp+=~/.vim/bundle/vundle/
-  call vundle#rc()
-endif
+"Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"if has('win32') || has('win64')
+"  set rtp+=~/vimfiles/bundle/vundle/
+"  let path='~/vimfiles/bundle'
+"  call vundle#rc(path)
+"  "call vundle#rc('$HOME/vimfiles/bundle/')
+"  " this stoped a lot of things working
+"  "set shell=cmd
+"  "set shellcmdflag=/c
+"  "set shellxquote=
+"  let $MYVIMRC='dotfiles/.vimrc'
+"else
+"  " Usual quickstart instructions
+"  set rtp+=~/.vim/bundle/vundle/
+"  call vundle#rc()
+"endif
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 " My Bundles here:
 Bundle 'scrooloose/nerdtree'
@@ -43,10 +46,10 @@ Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim' 
 Bundle 'majutsushi/tagbar' 
 Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim' 
+"Bundle 'kien/ctrlp.vim' 
 Bundle 'petRUShka/vim-opencl.git'
 Bundle 'kongo2002/fsharp-vim.git'
-Bundle 'derekwyatt/vim-scala'
+"Bundle 'derekwyatt/vim-scala'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
@@ -54,12 +57,13 @@ Bundle 'derekwyatt/vim-scala'
 "Bundle 'FuzzyFinder'
 " non github repos
 Bundle 'git://repo.or.cz/vcscommand.git'
-"Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'git://git.wincent.com/command-t.git'
 " Writing tools 
 "Bundle 'vim-scripts/LanguageTool'
 "Bundle 'davidbeckingsale/writegood.vim.git'
 "Bundle 'DamienCassou/textlint'
 
+call vundle#end()
 
 " Recognise file types
 filetype plugin indent on
@@ -82,7 +86,7 @@ let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
 "eclim does XML validation on saving which is a pain if you dont have
 "a dtd
-let g:EclimXmlValidate=0
+"let g:EclimXmlValidate=0
 
 "syntax higlighting
 syntax on
@@ -91,7 +95,7 @@ colorscheme zenburn
 "font
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
   elseif has("gui_win32") || has('gui_win64')
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
   endif
