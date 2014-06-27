@@ -43,13 +43,14 @@ Bundle 'jnurmine/Zenburn'
 Bundle 'rainux/vim-vala'
 "" Python
 Bundle 'klen/python-mode'
-Bundle 'davidhalter/jedi-vim' 
+"Bundle 'davidhalter/jedi-vim' 
 Bundle 'majutsushi/tagbar' 
 Bundle 'scrooloose/syntastic'
 "Bundle 'kien/ctrlp.vim' 
 Bundle 'petRUShka/vim-opencl.git'
 Bundle 'kongo2002/fsharp-vim.git'
 "Bundle 'derekwyatt/vim-scala'
+Bundle "pangloss/vim-javascript"
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos

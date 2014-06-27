@@ -1,5 +1,3 @@
-echo "Loaded my pythong file"
-
 " use indents of 4 spaces, and have them copied down lines:
 set tabstop=4
 set shiftwidth=4
@@ -31,7 +29,8 @@ let g:pymode_doc_key = 'K'
 
 "Linting
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+"let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checker = "pyflakes"
 " Auto check on save
 let g:pymode_lint_write = 1
 
