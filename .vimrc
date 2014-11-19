@@ -28,39 +28,41 @@ call vundle#begin()
 " let Vundle manage Vundle
 Bundle 'gmarik/Vundle.vim'
 
-" My Bundles here:
+" Make vim more IDE like 
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'godlygeek/tabular'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'vimoutliner/vimoutliner'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
-Bundle 'Lokaltog/powerline-fonts'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'tpope/vim-surround'
-Bundle 'jnurmine/Zenburn'
-"Bundle 'vim-scripts/calendar.vim--Matsumoto.git'
-Bundle 'rainux/vim-vala'
-"" Python
-Bundle 'klen/python-mode'
-"Bundle 'davidhalter/jedi-vim' 
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'git://repo.or.cz/vcscommand.git'
 Bundle 'majutsushi/tagbar' 
 Bundle 'scrooloose/syntastic'
-"Bundle 'kien/ctrlp.vim' 
+
+" Themes 
+Bundle 'jnurmine/Zenburn'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
+Bundle 'Lokaltog/powerline-fonts'
+
+" Productivity 
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'godlygeek/tabular'
+Bundle 'nathanaelkane/vim-indent-guides'
+"Bundle 'tpope/vim-surround'
+"Bundle 'Lokaltog/vim-easymotion'
+
+" Languages 
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'vimoutliner/vimoutliner'
+Bundle 'rainux/vim-vala'
 Bundle 'petRUShka/vim-opencl.git'
 Bundle 'kongo2002/fsharp-vim.git'
+Bundle 'JuliaLang/julia-vim'
 "Bundle 'derekwyatt/vim-scala'
+"" JavaScript 
 Bundle "pangloss/vim-javascript"
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-" non github repos
-Bundle 'git://repo.or.cz/vcscommand.git'
-Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'clausreinke/typescript-tools'
 Bundle 'leafgarland/typescript-vim'
+"" Python
+Bundle 'davidhalter/jedi-vim' 
+Bundle 'ivanov/vim-ipython'
+"Bundle 'klen/python-mode'
 
 " Writing tools 
 "Bundle 'vim-scripts/LanguageTool'
@@ -99,7 +101,7 @@ colorscheme zenburn
 "font
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
   elseif has("gui_win32") || has('gui_win64')
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
   endif
@@ -261,6 +263,7 @@ let g:tagbar_compact = 1 "less empty lines
 let g:tagbar_type_tex = {
     \ 'ctagstype' : 'latex',
     \ 'kinds'     : [
+        \ 'c:chapter',
         \ 's:sections',
         \ 'g:graphics:0:0',
         \ 'l:labels',

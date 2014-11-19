@@ -14,16 +14,16 @@ set nosmartindent
 
 
 
-imap <buffer> [[ 		\begin{
-imap <buffer> ]]		<Plug>LatexCloseCurEnv
+imap <buffer> [[ 		  \begin{
+imap <buffer> ]]		  <Plug>LatexCloseCurEnv
 nmap <buffer> <F6>		<Plug>LatexChangeEnv
 vmap <buffer> <F7>		<Plug>LatexWrapSelection
 vmap <buffer> <S-F7>	<Plug>LatexEnvWrapSelection
-imap <buffer> (( 		\eqref{
+imap <buffer> (( 		  \eqref{
 
 " this doesnt work, it seems to need to go in .vimrc
 " https://github.com/LaTeX-Box-Team/LaTeX-Box/issues/80
-let g:LatexBox_ignore_warnings += ['LaTeX Font Warning']
+"let g:LatexBox_ignore_warnings += ['LaTeX Font Warning']
 
 if has('win32') || has('win64')
   let g:LatexBox_viewer = '' " executes the file with default app
@@ -33,14 +33,24 @@ endif
 
 let g:LatexBox_latexmk_async=1
 
-function! LatexEvinceSearch()
-     
- let cmd = expand("python ~/bin/LaTeXTools/evince/evince_forward_search") . " " . fnamemodify( LatexBox_GetOutputFile(), ":p:." ) . " " . line('.') . " " . expand("%:p")
-  "fnamemodify modifies file names, ":p:." gives us the current file so
-  "file src/this.tex will be returned (src is in pwd)
-  "%:p" gives the full path
-  let output = system(cmd)
-endfun
+function! SyncTex()
+	let filename = bufname("%")
+	let lineno = line(".")
+	for syncfile in split(system('zgrep -l "' . filename . '" *.synctex.gz'), "\n")
+		let pdffile = substitute(syncfile, ".synctex.gz$", ".pdf", "")
+		exec 'silent ! python /usr/lib/gedit/plugins/synctex/evince_dbus.py ' .
+			\ '"' . pdffile . '" ' . lineno . ' "' . filename . '"'
+	endfor
+endfunction
+map <buffer> <LocalLeader>e :call SyncTex()<CR>
+
+"function! LatexEvinceSearch()
+" let cmd = expand("python ~/bin/LaTeXTools/evince/evince_forward_search") . " " . fnamemodify( LatexBox_GetOutputFile(), ":p:." ) . " " . line('.') . " " . expand("%:p")
+"  "fnamemodify modifies file names, ":p:." gives us the current file so
+"  "file src/this.tex will be returned (src is in pwd)
+"  "%:p" gives the full path
+"  let output = system(cmd)
+"endfun
 "command! LatexEvinceSearch call LatexEvinceSearch()
 "/usr/lib/gedit/plugins/synctex/evince_dbus.py 
 "this file didnt exit the script after running, so have to run a modified
