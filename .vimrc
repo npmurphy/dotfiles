@@ -26,47 +26,47 @@ call vundle#begin()
 "  call vundle#rc()
 "endif
 " let Vundle manage Vundle
-Bundle 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 " Make vim more IDE like 
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-vinegar.git'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-vinegar.git'
 " git 
-Bundle 'tpope/vim-fugitive' 
-Bundle 'git://git.wincent.com/command-t.git'
-"Bundle 'git://repo.or.cz/vcscommand.git'
-Bundle 'majutsushi/tagbar' 
-Bundle 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive' 
+Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://repo.or.cz/vcscommand.git'
+Plugin 'majutsushi/tagbar' 
+Plugin 'scrooloose/syntastic'
 
 " Themes 
-Bundle 'jnurmine/Zenburn'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
-Bundle 'Lokaltog/powerline-fonts'
+Plugin 'jnurmine/Zenburn'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
+Plugin 'Lokaltog/powerline-fonts'
 
 " Productivity 
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'godlygeek/tabular'
-Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'tpope/vim-surround'
-"Bundle 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'godlygeek/tabular'
+Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'tpope/vim-surround'
+"Plugin 'Lokaltog/vim-easymotion'
 
 " Languages 
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'vimoutliner/vimoutliner'
-Bundle 'rainux/vim-vala'
-Bundle 'petRUShka/vim-opencl.git'
-"Bundle 'kongo2002/fsharp-vim.git'
-Bundle 'fsharp/fsharpbinding' ", {'rtp': 'vim/'}
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'vimoutliner/vimoutliner'
+Plugin 'rainux/vim-vala'
+Plugin 'petRUShka/vim-opencl.git'
+"Plugin 'kongo2002/fsharp-vim.git'
+Plugin 'fsharp/fsharpbinding' ", {'rtp': 'vim/'}
 Plugin 'file:///home/nmurphy/.vim/bundle/fsharpbinding-vim'
-Bundle 'JuliaLang/julia-vim'
-"Bundle 'derekwyatt/vim-scala'
+
+"Plugin 'derekwyatt/vim-scala'
 "" JavaScript 
-Bundle "pangloss/vim-javascript"
-Bundle 'clausreinke/typescript-tools'
-Bundle 'leafgarland/typescript-vim'
+Plugin "pangloss/vim-javascript"
+Plugin 'clausreinke/typescript-tools'
+Plugin 'leafgarland/typescript-vim'
 "" Python
-Bundle 'davidhalter/jedi-vim' 
-Bundle 'ivanov/vim-ipython'
+Plugin 'davidhalter/jedi-vim' 
+Plugin 'ivanov/vim-ipython'
 "Bundle 'klen/python-mode'
 
 " Writing tools 
