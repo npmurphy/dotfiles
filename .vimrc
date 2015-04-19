@@ -30,8 +30,11 @@ Bundle 'gmarik/Vundle.vim'
 
 " Make vim more IDE like 
 Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-vinegar.git'
+" git 
+Bundle 'tpope/vim-fugitive' 
 Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'git://repo.or.cz/vcscommand.git'
+"Bundle 'git://repo.or.cz/vcscommand.git'
 Bundle 'majutsushi/tagbar' 
 Bundle 'scrooloose/syntastic'
 
@@ -52,7 +55,9 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'vimoutliner/vimoutliner'
 Bundle 'rainux/vim-vala'
 Bundle 'petRUShka/vim-opencl.git'
-Bundle 'kongo2002/fsharp-vim.git'
+"Bundle 'kongo2002/fsharp-vim.git'
+Bundle 'fsharp/fsharpbinding' ", {'rtp': 'vim/'}
+Plugin 'file:///home/nmurphy/.vim/bundle/fsharpbinding-vim'
 Bundle 'JuliaLang/julia-vim'
 "Bundle 'derekwyatt/vim-scala'
 "" JavaScript 
@@ -127,6 +132,9 @@ inoremap <C-t>     <Esc>:tabnew<CR>
 "line numbers on the left
 set number
 set cursorline
+
+" Suddenly the mouse disappeared, may be due to synergy. 
+set nomousehide
 
 " sets the current directory to be the current file
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
