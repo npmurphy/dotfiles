@@ -7,8 +7,10 @@ set autoindent
 
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 4
+let g:syntastic_python_python_exec = 'python3'
 
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['pylint'] 
+", 'mypy']
 "Disable annoying pylint mesages
 " C0103 Invalid constant name
 " R0903 Too few public methods (Classes aren't meant to just store data.)

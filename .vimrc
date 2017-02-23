@@ -1,9 +1,9 @@
-" So filetype detection is invoked AFTER pathogen functions  
+" So filetype detection is invoked AFTER pathogen functions
 set nocompatible               " be iMproved
-scriptencoding utf-8 
+scriptencoding utf-8
 set encoding=utf-8
 
-filetype off 
+filetype off
 
 
 "Vundle
@@ -28,20 +28,34 @@ call vundle#begin()
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
 
-" Make vim more IDE like 
+" Make vim more IDE like
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-vinegar.git'
-" git 
-Plugin 'tpope/vim-fugitive' 
-Plugin 'git://git.wincent.com/command-t.git'
+" git
+Plugin 'tpope/vim-fugitive'
 "Plugin 'git://repo.or.cz/vcscommand.git'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'majutsushi/tagbar' 
 Plugin 'scrooloose/syntastic'
 
 " Themes 
 Plugin 'jnurmine/Zenburn'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
-Plugin 'Lokaltog/powerline-fonts'
+"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
+"Plugin 'Lokaltog/powerline-fonts'
+Plugin 'powerline/fonts'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"let g:ycm_keep_logfiles = 1
+"let g:ycm_log_level = 'debug'
+let g:ycm_filetype_whitelist = { 'py': 1, 'fs':1, 'fsx':1 }
+
 
 " Productivity 
 Plugin 'scrooloose/nerdcommenter'
@@ -55,17 +69,19 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'vimoutliner/vimoutliner'
 Plugin 'rainux/vim-vala'
 Plugin 'petRUShka/vim-opencl.git'
+Plugin 'JuliaLang/julia-vim'
 "Plugin 'kongo2002/fsharp-vim.git'
-Plugin 'fsharp/fsharpbinding' ", {'rtp': 'vim/'}
-Plugin 'file:///home/nmurphy/.vim/bundle/fsharpbinding-vim'
+"Plugin 'fsharp/fsharpbinding' ", {'rtp': 'vim/'}
+Plugin 'fsharp/vim-fsharp'
+"Plugin 'file:///home/nmurphy/.vim/bundle/fsharpbinding-vim'
 
 "Plugin 'derekwyatt/vim-scala'
 "" JavaScript 
-Plugin "pangloss/vim-javascript"
+"Plugin 'pangloss/vim-javascript'
 Plugin 'clausreinke/typescript-tools'
 Plugin 'leafgarland/typescript-vim'
 "" Python
-Plugin 'davidhalter/jedi-vim' 
+"Plugin 'davidhalter/jedi-vim' 
 Plugin 'ivanov/vim-ipython'
 "Bundle 'klen/python-mode'
 
@@ -106,18 +122,23 @@ colorscheme zenburn
 "font
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
   elseif has("gui_win32") || has('gui_win64')
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
   endif
 endif
-let g:Powerline_symbols = 'fancy' 
+"let g:Powerline_symbols = 'fancy' 
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 set laststatus=2 
 "Now using powerline
+"g:powerline_pycmd = 'py3'
 ":set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 ":set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
+" Now using Airline
 
-" Fat fingers
+
+"Fat fingers
 noremap <F1> <Esc>
 :command W w  "set W to be save too 
 
@@ -128,6 +149,11 @@ nnoremap <C-t>     :tabnew<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
+
+"" ctrl P
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 "line numbers on the left
 set number
@@ -188,13 +214,13 @@ function! ToggleFiletype()
   endif
 endfunction
 
-
 "visual indicator of 80 colums
 "highlight the 80 char gutter
 set cc=80
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
-
+set textwidth=0 
+set wrapmargin=0
 
 
 
@@ -255,7 +281,7 @@ let NERDTreeIgnore = ['\.pyc$']
 "map <F5> :TlistToggle<CR> "Ctags togle
 map <F5> :TagbarToggle<CR>
 
-
+set tags=./tags,tags;$HOME
 
 " make the quickfix list allways be on the bottom, 
 " not the bottom right vsplit pane 
@@ -280,6 +306,13 @@ let g:tagbar_type_tex = {
     \ ],
     \ 'sort'    : 0
 \ }
+let g:tagbar_type_julia = {
+    \ 'ctagstype' : 'julia',
+    \ 'kinds'     : [
+        \ 'f:function'
+    \ ],
+    \ 'sort'    : 0
+\ }
 "\ 'deffile' : expand('<sfile>:p:h:h') . '/ctags/latex.cnf' " dont need this
 "as we are in 
 
@@ -293,7 +326,7 @@ let g:tagbar_type_tex = {
 "
 "pdfsync is in the ftplugin file
 "map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline
-		"\ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
+    "\ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
 
 
 """"""""""""""""""""
@@ -309,7 +342,7 @@ let g:tagbar_type_tex = {
 "" (I actually have two different keys mapped, one for each of the two above
 "" behaviours.)
 ":imap <c-s> <c-o><c-s><cr>
-inoremap <C-S>	<C-O>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
 
 "make ctrl v be paste in mode
 "http://superuser.com/questions/10588/how-to-make-cut-copy-paste-in-gvim-on-ubuntu-work-with-ctrlx-ctrlc-ctrlv
@@ -326,6 +359,23 @@ imap <C-v> <C-r><C-o>+
 "" correct my common typos without me even noticing them:
 "abbreviate teh the
 
+""""""""""""""""
+"" You complete me
+"""""""""""""""
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
+
+"""""""""""""""
+"" Neo vim python setup
+"""""""""""""""
+if has('nvim')
+  let g:python3_host_prog = '/home/nmurphy/anaconda3/envs/py35/bin/python'
+  let g:loaded_python_provider = 1
+endif
+"""""""""""""""
+"""
+""""""""""""""
+let g:fsharp_interactive_bin = '/usr/bin/fsharpi'
+autocmd BufNewFile,BufRead *.ml,*.mli set filetype=fsharp
 
 
 """"""""""""""""""""
