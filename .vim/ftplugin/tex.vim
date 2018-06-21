@@ -27,6 +27,11 @@ imap <buffer> (( 		  \eqref{
 
 if has('win32') || has('win64')
   let g:LatexBox_viewer = '' " executes the file with default app
+elseif has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    let g:LatexBox_viewer = 'open -a Skim'
+  endif
 else
   let g:LatexBox_viewer = '/home/nmurphy/bin/evince-sync'
 endif

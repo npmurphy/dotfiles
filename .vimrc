@@ -128,6 +128,8 @@ colorscheme zenburn
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+  elseif has("gui_macvim") 
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
   elseif has("gui_win32") || has('gui_win64')
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
   endif
