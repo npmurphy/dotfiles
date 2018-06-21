@@ -2,7 +2,7 @@
 set nocompatible               " be iMproved
 scriptencoding utf-8
 set encoding=utf-8
-
+set visualbell
 filetype off
 
 
@@ -48,13 +48,12 @@ Plugin 'powerline/fonts'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+"Plugin 'Valloric/YouCompleteMe'
+"let g:ycm_autoclose_preview_window_after_completion=1
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "let g:ycm_keep_logfiles = 1
 "let g:ycm_log_level = 'debug'
-let g:ycm_filetype_whitelist = { 'py': 1, 'fs':1, 'fsx':1 }
+"let g:ycm_filetype_whitelist = { 'py': 1, 'fs':1, 'fsx':1 }
 
 
 " Productivity 
@@ -63,12 +62,15 @@ Plugin 'godlygeek/tabular'
 Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'tpope/vim-surround'
 "Plugin 'Lokaltog/vim-easymotion'
+"ORG mode
+Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-speeddating'
 
 " Languages 
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'vimoutliner/vimoutliner'
-Plugin 'rainux/vim-vala'
-Plugin 'petRUShka/vim-opencl.git'
+"Plugin 'rainux/vim-vala'
+"Plugin 'petRUShka/vim-opencl.git'
 Plugin 'JuliaLang/julia-vim'
 "Plugin 'kongo2002/fsharp-vim.git'
 "Plugin 'fsharp/fsharpbinding' ", {'rtp': 'vim/'}
@@ -78,11 +80,11 @@ Plugin 'fsharp/vim-fsharp'
 "Plugin 'derekwyatt/vim-scala'
 "" JavaScript 
 "Plugin 'pangloss/vim-javascript'
-Plugin 'clausreinke/typescript-tools'
-Plugin 'leafgarland/typescript-vim'
+"Plugin 'clausreinke/typescript-tools'
+"Plugin 'leafgarland/typescript-vim'
 "" Python
 "Plugin 'davidhalter/jedi-vim' 
-Plugin 'ivanov/vim-ipython'
+"Plugin 'ivanov/vim-ipython'
 "Bundle 'klen/python-mode'
 
 " Writing tools 
@@ -117,6 +119,9 @@ au FileType xml setlocal foldmethod=syntax
 
 "syntax higlighting
 syntax on
+"http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files?noredirect=1&lq=1
+syntax spell toplevel
+
 colorscheme zenburn
 "desert
 "font
