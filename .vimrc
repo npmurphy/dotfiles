@@ -1,4 +1,3 @@
-" So filetype detection is invoked AFTER pathogen functions
 set nocompatible               " be iMproved
 scriptencoding utf-8
 set encoding=utf-8
@@ -40,6 +39,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar' 
 Plugin 'scrooloose/syntastic'
 
+Plugin 'mechatroner/rainbow_csv'
+
 " Themes 
 Plugin 'jnurmine/Zenburn'
 "Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
@@ -67,14 +68,14 @@ Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
 
 " Languages 
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+"Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'vimoutliner/vimoutliner'
 "Plugin 'rainux/vim-vala'
 "Plugin 'petRUShka/vim-opencl.git'
-Plugin 'JuliaLang/julia-vim'
+"Plugin 'JuliaLang/julia-vim'
 "Plugin 'kongo2002/fsharp-vim.git'
 "Plugin 'fsharp/fsharpbinding' ", {'rtp': 'vim/'}
-Plugin 'fsharp/vim-fsharp'
+"Plugin 'fsharp/vim-fsharp'
 "Plugin 'file:///home/nmurphy/.vim/bundle/fsharpbinding-vim'
 
 "Plugin 'derekwyatt/vim-scala'
@@ -99,6 +100,7 @@ filetype plugin indent on
 set showbreak=>>>
 "set showbreak=\ \ \ \ \ \ \ \ \ \ \ \ \ \ 
 "let &showbreak=repeat(' ', 14)
+let g:rcsv_delimiters = ["\t", ",", ";", "|"]
 
 set fileformat=unix
 set backspace=indent,eol,start
@@ -201,25 +203,26 @@ map <C-i> i_<Esc>r
 "runs stamp
 "%:r gives the filename minus the extension 
 "appends ".pdf" and presses "enter" 
-au FileType tex nmap <leader>sp : !stamp %:r.pdf<CR>
-au FileType tex nmap <leader>sp : !stamp %:r.pdf<CR>
+"au FileType tex nmap <leader>sp : !stamp %:r.pdf<CR>
+"au FileType tex nmap <leader>sp : !stamp %:r.pdf<CR>
 
-au BufRead,BufNewFile *.pytex nmap <F7> :call ToggleFiletype()<CR>                                        
-au BufRead,BufNewFile *.pytex set filetype=tex  
-au BufRead,BufNewFile *.pytex set syntax=pytex  
+"au BufRead,BufNewFile *.pytex nmap <F7> :call ToggleFiletype()<CR>                                        
+"au BufRead,BufNewFile *.pytex set filetype=tex  
+"au BufRead,BufNewFile *.pytex set syntax=pytex  
 
-function! ToggleFiletype()                                                  
-  if &ft == 'python'                                                        
-    set filetype=tex                                                      
-    "set ft=mypascal                                                        
-    set syntax=pytex
-  elseif &ft == 'tex'                                                                    
-    set filetype=python
-    set syntax=pytex
-  else 
-    echo "not a pytex file?" 
-  endif
-endfunction
+" for working with literate python / tex files
+"function! ToggleFiletype()                                                  
+"  if &ft == 'python'                                                        
+"    set filetype=tex                                                      
+"    "set ft=mypascal                                                        
+"    set syntax=pytex
+"  elseif &ft == 'tex'                                                                    
+"    set filetype=python
+"    set syntax=pytex
+"  else 
+"    echo "not a pytex file?" 
+"  endif
+"endfunction
 
 "visual indicator of 80 colums
 "highlight the 80 char gutter
