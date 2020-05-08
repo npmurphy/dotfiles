@@ -7,16 +7,26 @@ set autoindent
 
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 4
-let g:syntastic_python_python_exec = 'python3'
+"let g:syntastic_python_python_exec = 'python3'
 
-let g:syntastic_python_checkers = ['pylint'] 
+"let g:syntastic_python_checkers = ['pylint'] 
 ", 'mypy']
 "Disable annoying pylint mesages
 " C0103 Invalid constant name
 " R0903 Too few public methods (Classes aren't meant to just store data.)
 " W0141 Used builtin function 'map'|'filter' (Why not? Nonsense!)
 " W0142 Used * or ** magic (Why not? Nonsense!)
-let g:syntastic_python_pylint_post_args='--disable=C0103,R0903,W0141,W0142'
+"let g:syntastic_python_pylint_post_args='--disable=C0103,R0903,W0141,W0142'
+
+
+" Check Python files with flake8 and pylint.
+let b:ale_linters = ['prospector']
+let b:ale_fixers = ['black', 'isort']
+let b:ale_fix_on_save = 1
+" Fix Python files with autopep8 and yapf.
+"let b:ale_fixers = ['autopep8', 'yapf']
+" Disable warnings about trailing whitespace for Python files.
+"let b:ale_warn_about_trailing_whitespace = 0
 
 "" Python-mode
 "" Activate rope

@@ -37,7 +37,11 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'majutsushi/tagbar' 
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic' " now using ale
+"Plugin 'psf/black', { 'tag': '19.10b0' } " now we get it through ale
+Plugin 'dense-analysis/ale'
+
+Plugin 'cjrh/vim-conda'
 
 Plugin 'mechatroner/rainbow_csv'
 
@@ -119,10 +123,15 @@ au FileType xml setlocal foldmethod=syntax
 "a dtd
 "let g:EclimXmlValidate=0
 
+
+""ALE 
+"let g:ale_linters = {'python': ['prospector']}
+
+
 "syntax higlighting
 syntax on
 "http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files?noredirect=1&lq=1
-syntax spell toplevel
+"syntax spell toplevel
 
 colorscheme zenburn
 "desert
