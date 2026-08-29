@@ -41,7 +41,7 @@ Plugin 'majutsushi/tagbar'
 "Plugin 'psf/black', { 'tag': '19.10b0' } " now we get it through ale
 Plugin 'dense-analysis/ale'
 
-Plugin 'cjrh/vim-conda'
+"Plugin 'cjrh/vim-conda'
 
 Plugin 'mechatroner/rainbow_csv'
 
